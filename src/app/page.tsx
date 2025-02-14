@@ -1,101 +1,106 @@
+"use client";
 import Image from "next/image";
+import { Box, Flex, Button, Text, VStack, Heading, HStack } from "@chakra-ui/react";
 
-export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+type OverlayBoxProps = {
+	imageUrl: string;
+	title: string;
+	description: string;
+};
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+const OverlayBox: React.FC<OverlayBoxProps> = ({ imageUrl, title, description }) => (
+	<Box
+		position="relative"
+		bgImage={`url(${imageUrl})`}
+		backgroundSize="cover"
+		backgroundPosition="center"
+		bgRepeat="no-repeat"
+		h="200px"
+		w="100%"
+		display="flex"
+		flexDirection="column"
+		justifyContent="center"
+		alignItems="center"
+		color="white"
+		textAlign="center"
+		textShadow="0px 0px 4px rgba(255,255,255,0.2)"
+		border="1px solid rgba(255,255,255,1)"
+	>
+		<Box
+			position="absolute"
+			top="0"
+			left="0"
+			width="100%"
+			height="100%"
+			bg="rgba(0, 0, 0, 0.5)"
+			zIndex="1"
+		/>
+
+		<Box position="relative" zIndex="2">
+			<Text fontSize="20px" fontWeight="bold">{title}</Text>
+			<Text fontSize="16px">{description}</Text>
+		</Box>
+	</Box>
+);
+
+
+export default function ProfilePage() {
+	return (<>
+		<Flex justifyContent="center" alignItems="center" minH="100vh" bg="gray.100">
+			<Box alignItems="flex-start" color="gray.800" maxW="600px" w="100%">
+				<Box w="100%" display="flex" flexDirection="column" alignItems="center" my={5}>
+					<Text fontSize="25px">I'll learn as it needed!</Text>
+					<Image
+						className="rounded-full"
+						src="/icon.jpg"
+						alt="Profile Picture"
+						width={100}
+						height={100}
+						priority
+					/>
+					<Text fontSize="25px">Kohei Y</Text>
+					<Text fontSize="16px" color="gray.600" mb={3}>Full-Stack Developer</Text>
+				</Box>
+				<Box maxW="600px">
+					<Text fontSize="20px">Timeline</Text>
+					<Text fontSize="16px" color="gray.600">{`
+					Now < Solo Entrepreneur (1year) < Working for a Manufacturing Company in Research and Development (3y) 
+					< Master's Degree in Electronic Engineering from a National University (2y)
+				`}</Text>
+					<Text fontSize="20px" mt={3}>Domain Knowledge</Text>
+					<Text fontSize="16px" color="gray.600" mb={0}>
+						(1y) TypeScript, Next.js, AI-Coding<br />
+						(4y) Crypto Trading, Macroeconomics, Electronic Circuit<br />
+						(Learning) Business administration, Social Media Marketing<br />
+						(Sub) AWS, X Account Management, Stable Diffusion, Fusion 360, 3D Printing ,Python, Solidity, C, C++, C#, Verilog HDL<br />
+					</Text>
+				</Box>
+
+				<Box w="100%" display="flex" flexDirection="column" alignItems="center" my={5}>
+					<Text fontSize="20px" color="gray.800" my={2}>What I did ⇓</Text>
+					<OverlayBox
+						imageUrl="/sakura.png"
+						title="Stripe Checkout, Copywriting, PhotoShoot, Web designing."
+						description="A branding site of a commemorative silver medal."
+					/>
+					<OverlayBox
+						imageUrl="/mySnap.png"
+						title="Large Size project of 40,000 lines TypeScript, Pinterest Like modanaied social media web apprication, Sarverless arkitecture"
+						description="A Japanese AI-art community diven projyect"
+					/>
+					<OverlayBox
+						imageUrl="/mandara.png"
+						title="NFT market place, realtime custom 3D model rendaring."
+						description="Web3 on-bording project"
+					/>
+					<OverlayBox
+						imageUrl="/joystick.png"
+						title="3D CAD, 3D printing, Electonic circuit, embed HDI"
+						description="Home made Joystick"
+					/>
+				</Box>
+			</Box>
+		</Flex>
+	</>
+	);
 }
