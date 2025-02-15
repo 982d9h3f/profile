@@ -52,8 +52,8 @@ export default function ProfilePage() {
 						<Text fontSize="20px" mt={3}>{`Domain Knowledge`}</Text>
 						<Text fontSize="16px" mb={0}>
 							{`(1y) TypeScript, Next.js, AWS Lambda, AWS DynamoDB, AI-Coding`}<br />
-							{`(4y) Crypto Trading, Macroeconomics, Electronic Circuit`}<br />
-							{`(Sub)  AWS, Docker, scikit-learn, pandas, numpy, Solidity, Stable Diffusion, X Account Management, Fusion 360, 3D Printing, C, C++, C#, Verilog HDL`}<br />
+							{`(4y) Crypto Trading, Macroeconomics, Verilog HDL, Analog front end`}<br />
+							{`(Sub)  AWS, Docker, scikit-learn, pandas, numpy, Solidity, Blender, Davinci resolve, Stable Diffusion, X Account Management, Fusion 360, 3D Printing, C, C++, C#`}<br />
 						</Text>
 						<Text fontSize="20px" mt={5}>
 							{`What I did for fun ⇓`}<br />
