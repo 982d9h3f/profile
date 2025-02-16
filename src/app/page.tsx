@@ -68,12 +68,6 @@ export default function ProfilePage() {
 							onClick={() => window.open("https://sakura-sigma.vercel.app/", "_blank")}
 						/>
 						<OverlayBox
-							imageUrl="/mySnap.png"
-							title={`Large-Scale Project with 40,000 Lines of TypeScript – A Pinterest-Like Modern Social Media Web Application with a Highly Scalable Serverless Architecture`}
-							description={`A Japanese AI-art community-driven project.`}
-							onClick={() => handleOverlayClick("https://mysnap16.com/")}
-						/>
-						<OverlayBox
 							imageUrl="/mandara.png"
 							title={`NFT Marketplace with Real-Time Custom 3D Model Rendering`}
 							description={`A Web3 onboarding project.`}
